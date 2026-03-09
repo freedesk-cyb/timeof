@@ -873,39 +873,140 @@ section {
 
 .inspector-content {
     width: 90%;
-    height: 80%;
-    display: flex;
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1000;
 }
 
-.inspector-zoom-wrapper {
-    width: 80%;
-    height: 70%;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 80%);
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: 0.3s;
 }
 
-#inspector-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform 0.1s linear;
-    transform-origin: center center;
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .cinematic-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        padding: 4rem 5%;
+    }
+
+    .tecnologia-img-presentation {
+        justify-content: center;
+    }
+
+    .premium-title {
+        font-size: 2.8rem;
+    }
 }
 
-.inspector-info {
-    margin-top: 2rem;
-    text-align: center;
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem 5%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 999;
+        border-left: 1px solid var(--glass-border);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-actions {
+        display: none;
+    }
+
+    .hero-slider .slide-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-slider .slide-content p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .models-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 1.5rem;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .modal-info h2 {
+        font-size: 2.2rem;
+    }
+
+    .inspector-zoom-wrapper {
+        width: 100%;
+        height: 60vh;
+    }
+
+    .inspector-overlay .close-inspector {
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 3rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
 }
 
-.inspector-info p {
-    color: var(--text-secondary);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
+@media (max-width: 480px) {
+    .premium-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-slider .slide-content h1 {
+        font-size: 2rem;
+    }
+
+    .btn-premium {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.8rem;
+    }
 }
